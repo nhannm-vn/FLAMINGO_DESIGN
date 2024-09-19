@@ -274,25 +274,25 @@
             <h1 id="contact">CONTACT ME</h1>
             <p class="mt-5">123-456-7890 / info@mysite.com</p>
             <p class="mb-5">500 Terry Francine Street San Francisco, CA 94158</p>
-            <form>
+            <form novalidate>
                 <div class="contact-input d-flex mb-3">
                     <div class="contact-fname d-flex flex-column me-5 mb-3">
                         <label class="form-label" for="fname">First name*</label>
-                        <input class="form-control input-fname" id="fname" type="text">
+                        <input class="form-control input-fname input-prevent-empty" id="fname" type="text">
                     </div>
                     <div class="contact-lname d-flex flex-column ms-5 mb-3">
                         <label class="form-label" for="lname">Last name*</label>
-                        <input class="form-control input-lname" id="lname" type="text">
+                        <input class="form-control input-lname input-prevent-empty" id="lname" type="text">
                     </div>
                 </div>
                 <div class="contact-input d-flex mb-3">
                     <div class="contact-email d-flex flex-column me-5 mb-3 mt-3">
                         <label class="form-label" for="email">Email*</label>
-                        <input class="form-control input-email" id="email" type="email">
+                        <input class="form-control input-email input-prevent-empty" id="email" type="email">
                     </div>
-                    <div class="contact-subject d-flex flex-column ms-5 mb-3 mt-3">
-                        <label class="form-label" for="subject">Subject*</label>
-                        <input class="form-control input-subject" id="subject" type="text">
+                    <div class="contact-phone d-flex flex-column ms-5 mb-3 mt-3">
+                        <label class="form-label" for="phone">Phone*</label>
+                        <input class="form-control input-phone input-prevent-empty" id="phone" type="text">
                     </div>
                 </div>
                 <div class="contact-input d-flex mb-3">

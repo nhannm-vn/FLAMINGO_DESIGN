@@ -344,24 +344,24 @@ body{
     color: rgb(127, 112, 61);
 }
 /* subject */
-.input-subject{
+.input-phone{
     width: 24rem;
     height: 4.5rem;
     background-color: #fafafa;
     border: 2px solid rgb(127, 112, 61);
     font-size: 2rem;
 }
-.input-subject:hover{
+.input-phone:hover{
     background-color:  #e0e0e0;
 }
-.input-subject:focus{
+.input-phone:focus{
     box-shadow: none;
     outline: none;
     outline-offset: none;
     border: 2px solid rgb(127, 112, 61);
     background-color: #e0e0e0;
 }
-.contact-subject label{
+.contact-phone label{
     color: rgb(127, 112, 61);
 }
 
@@ -407,7 +407,7 @@ body{
     content: "";
     height: 100%;
     width: 0%;
-    background-color: rgb(127, 112, 61);
+    background-color: rgb(205, 135, 5);
     position: absolute;
     right: 0;
     top: 0;
