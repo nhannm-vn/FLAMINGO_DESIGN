@@ -16,8 +16,8 @@ body{
     max-width: 132rem;
     background-color: #fafafa;
     margin: 0 auto;
-    border: 2px solid red;
-    height: 535rem;
+    /* border: 2px solid red; */
+    height: 445rem;
     padding: 0;
     position: relative;
 }
@@ -151,40 +151,44 @@ body{
 /* body */
 .shop-body{
     margin-top: 7rem;
-    height: 170rem;
-    border: 2px solid slateblue;
+    height: 130rem;
+    /* border: 2px solid slateblue; */
 }
 /*  */
 .shop-body-just{
-    margin: 3rem 10rem 0 10rem;
-    border: 1px solid green;
+    margin: 3rem 15.5rem 0 15.5rem;
+    /* border: 1px solid green; */
     
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
 }
 .card-element{
-    width: 32rem;
-    height: 45rem;
-    border: 3px solid yellow;
+    width: 26rem;
+    height: 37rem;
+    /* border: 3px solid yellow; */
     background-color: #fafafa;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .card-element-cover{
-    border: 2px solid red;
-    width: 31.5rem;
+    /* border: 2px solid red; */
+    width: 22.5rem;
     overflow: hidden;
-    height: 30rem;
+    height: 21.5rem;
 }
 .card-element-img{
     display: block;
-    width: 31rem;
-    height: 30rem;
+    width: 22rem;
+    height: 21.5rem;
 }
 /* button */
 .btn-add-cart{
     background-color: transparent;
-    width: 12rem;
-    height: 4.5rem;
+    width: 10rem;
+    height: 3.5rem;
     border: 1px solid black;
     position: relative;
     z-index: 1;
@@ -218,12 +222,12 @@ body{
 /* about */
 .about-body{
     width: 100%;
-    height: 60rem;
+    height: 45rem;
     background-color: rgb(127, 112, 61);
 }
 .about-body h1{
     padding-top: 8rem;
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     font-weight: 370;
     text-align: center;
     color: aliceblue;
@@ -234,31 +238,31 @@ body{
     text-align: center;
     color: aliceblue;
     font-weight: 300;
-    font-size: 1.8rem;
-    margin-bottom: 8rem;
+    font-size: 1.3rem;
+    margin-bottom: 5rem;
 }
 .about-icon{
     color: aliceblue;
-    font-size: 9rem;
+    font-size: 4rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
 }
 /* background-end */
 .background-end{
-    height: 75rem;
+    height: 45rem;
     margin-bottom: 5rem;
 }
 .background-end-img{
     overflow: hidden;
     background-repeat: no-repeat;
     background-size: calc(100%);
-    height: 100%;
+    height: 50rem;
     background-image: url("https://static.wixstatic.com/media/84770f_7e8c6e53e08040a6802b655e978e86e5~mv2.jpg/v1/fill/w_980,h_720,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/84770f_7e8c6e53e08040a6802b655e978e86e5~mv2.jpg");
     background-attachment: fixed;
 }
 /* contact me */
 .contact-body{
-    border: 2px solid darkmagenta;
+    /* border: 2px solid darkmagenta; */
     height: 80rem;
 }
 .contact-body h1{
@@ -436,7 +440,7 @@ body{
     text-decoration: none;
     font-weight: 900;
     color: aliceblue;
-    font-size: 3rem;
+    font-size: 2.5rem;
 }
 .content-end-to-header p{
     color: aliceblue;
