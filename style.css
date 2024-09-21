@@ -17,7 +17,7 @@ body{
     background-color: #fafafa;
     margin: 0 auto;
     /* border: 2px solid red; */
-    height: 445rem;
+    height: 490rem;
     padding: 0;
     position: relative;
 }
@@ -263,7 +263,7 @@ body{
 /* contact me */
 .contact-body{
     /* border: 2px solid darkmagenta; */
-    height: 80rem;
+    height: 90rem;
 }
 .contact-body h1{
     padding-top: 5rem;
@@ -423,6 +423,21 @@ body{
     left: 0;
     width: 100%;
 }
+/* table-feedback */
+.table-feedback{
+    border: 2px double rgb(205, 135, 5);
+    width: 80%;
+    height: 30rem;
+    margin: 0 auto;
+    overflow-y: auto;
+    border-radius: 1rem;
+    margin-bottom: 3rem;
+}
+.table-feedback h2{
+    text-align: center;
+    color: rgb(127, 112, 61);
+    font-weight: 400;
+}
 
 /* body end */
 .content-end{
@@ -481,6 +496,7 @@ body{
     color: aliceblue;
     font-size: 2rem;
 }
+
 /* end icon */
 .content-end-icon{
     margin-top: 2rem;
@@ -506,3 +522,5 @@ body{
 .content-end-hehe a:hover{
     color: black;
 }
+
+

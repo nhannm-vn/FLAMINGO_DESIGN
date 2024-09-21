@@ -17,9 +17,9 @@ phone: isRequired, isPhone: chỉ toàn số và có độ dài 10 hoặc 11
 message: isRequired min(10) max(40)
 */
 const REG_EMAIL =
-  /^[a-zA-Z\d\.\-\_]+(\+\d+)?@[a-zA-Z\d\.\-\_]{1,65}\.[a-zA-Z]{1,5}$/;
+    /^[a-zA-Z\d\.\-\_]+(\+\d+)?@[a-zA-Z\d\.\-\_]{1,65}\.[a-zA-Z]{1,5}$/;
 const REG_NAME =
-  /^[a-zA-Z\u00C0-\u024F\u1E00-\u1EFF]+((\s[a-zA-Z\u00C0-\u024F\u1E00-\u1EFF]+)+)?$/;
+    /^[a-zA-Z\u00C0-\u024F\u1E00-\u1EFF]+((\s[a-zA-Z\u00C0-\u024F\u1E00-\u1EFF]+)+)?$/;
 const REG_PHONE = /^[0]\d{9,10}$/;
 
 //Viết cho nó các hàm để cho từng nhu cầu chặn để sử dụng cấu trúc Observer Design Pattern
@@ -89,12 +89,12 @@ const createMsg = (parentNode, controlNodes, msg) => {
 //hẳn luôn để không nó hiện nhiều quá. Và nếu lỗi thì trả ra cái lỗi đó, còn không lỗi
 //thì mình trả ra "" cho nó => nhằm giúp mình check khi nào thì form valid toàn bộ
 
-const isValid = ({value, parentNode, funcs, controlNodes}) => {
+const isValid = ({ value, parentNode, funcs, controlNodes }) => {
     //kiểm tra value bằng các hàm trong mảng funcs đi   
     //**Lưu ý phải xài for-of thì mới return và dừng lại được
-    for (const checkFunc of funcs) { 
+    for (const checkFunc of funcs) {
         let msg = checkFunc(value);
-        if(msg){//lỗi thì trả ra msg mà msg thì là chuỗi có nd lên true nên làm
+        if (msg) {//lỗi thì trả ra msg mà msg thì là chuỗi có nd lên true nên làm
             createMsg(parentNode, controlNodes, msg);
             return msg;//tạo ra cái lỗi xong dừng lại luôn và trả ra con lỗi đó
         };
@@ -130,7 +130,7 @@ const clearMsg = () => {
 //dom tới tất cả tụi nó
 document.querySelectorAll(".input-prevent-empty").forEach((item) => {
     item.addEventListener("blur", (event) => {
-        if(!event.target.value && !event.target.classList.contains("is-invalid")){//nghĩa là nếu không nhập gì và cũng không báo đỏ thì mới làm
+        if (!event.target.value && !event.target.classList.contains("is-invalid")) {//nghĩa là nếu không nhập gì và cũng không báo đỏ thì mới làm
             createMsg(event.target.parentNode, [event.target], "that fields is required");
         };
     });
@@ -139,7 +139,7 @@ document.querySelectorAll(".input-prevent-empty").forEach((item) => {
 //sự kiện khi có gõ gì vào thì mình sẽ xóa đi cái đỏ đỏ nhé
 document.querySelectorAll(".input-prevent-empty").forEach((item) => {
     item.addEventListener("input", (event) => {
-        if(event.target.value != "" || event.target.value != null){//nếu có nội dung gì đó thì là true mà true thì làm
+        if (event.target.value != "" || event.target.value != null) {//nếu có nội dung gì đó thì là true mà true thì làm
             //xóa cái class is-invalid cho nó hết đỏ đi
             event.target.classList.remove("is-invalid");
             //xóa cái div thông báo ở dưới
@@ -163,36 +163,213 @@ document.querySelector("form").addEventListener("submit", (event) => {
     const messageNode = document.querySelector("#message");
 
     //kiểm tra từng thằng valid thông qua các hàm của nó
-    isValid({
-        value: fnameNode.value,
-        funcs: [isRequired, isName],
-        parentNode: fnameNode.parentElement,
-        controlNodes: [fnameNode],
+    let validForm = [
+        isValid({
+            value: fnameNode.value,
+            funcs: [isRequired, isName],
+            parentNode: fnameNode.parentElement,
+            controlNodes: [fnameNode],
+        }),
+        isValid({
+            value: lnameNode.value,
+            funcs: [isRequired, isName],
+            parentNode: lnameNode.parentElement,
+            controlNodes: [lnameNode],
+        }),
+        isValid({
+            value: emailNode.value,
+            funcs: [isRequired, isEmail],
+            parentNode: emailNode.parentElement,
+            controlNodes: [emailNode],
+        }),
+        isValid({
+            value: phoneNode.value,
+            funcs: [isRequired, isPhone],
+            parentNode: phoneNode.parentElement,
+            controlNodes: [phoneNode],
+        }),
+        isValid({
+            value: messageNode.value,
+            funcs: [isRequired, min(10), max(40)],
+            parentNode: messageNode.parentElement,
+            controlNodes: [messageNode],
+        }),
+    ];
+    // //ngăn sự kiện load lại mất nội dung trước
+    // event.preventDefault();
+    
+    //lấy thông tin từ các ô input
+    let fname = document.querySelector("#fname").value;
+    let lname = document.querySelector("#lname").value;
+    let message = document.querySelector("#message").value;
+    //đúc ra customer mới
+    let newCustomer = new Customer(fname + " " + lname, message);
+    //tạo ra anh điều khiển trên ls
+    let store = new Store();
+    //tạo ra anh hiển thị trên UI
+    let ui = new RenderUI();
+
+    let checkValidForm = validForm.every((item) => {
+        return item == "";
     });
-    isValid({
-        value: lnameNode.value,
-        funcs: [isRequired, isName],
-        parentNode: lnameNode.parentElement,
-        controlNodes: [lnameNode],
-    });
-    isValid({
-        value: emailNode.value,
-        funcs: [isRequired, isEmail],
-        parentNode: emailNode.parentElement,
-        controlNodes: [emailNode],
-    });
-    isValid({
-        value: phoneNode.value,
-        funcs: [isRequired, isPhone],
-        parentNode: phoneNode.parentElement,
-        controlNodes: [phoneNode],
-    });
-    isValid({
-        value: messageNode.value,
-        funcs: [isRequired, min(10), max(40)],
-        parentNode: messageNode.parentElement,
-        controlNodes: [messageNode],
-    });
+    if(checkValidForm){
+        //thêm vào ls trước
+        store.add(newCustomer);
+        //thêm vào ui
+        ui.add(newCustomer);
+        //hiển thị thông báo alert
+        ui.alert(`Add form ${newCustomer.name} success`);
+    }else{
+        ui.alert(`Form không hợp lệ!`, type = `dark`);
+    };
 });
 
+// Chức năng hiển thị feedback lên web
+//tạo class cho Customer để tạo ra các customer
+//tụi tui k có dùng class => function constructor
+function Customer(name, message) {
+    this.name = name;
+    this.message = message;
+    this.id = new Date().toISOString();
+};
+
+//----------------Store---------------
+function Store() { };
+//Store chuyên tạo ra những object có method quản lí localStorage
+//.getCustomers(): lên ls lấy danh sách các customers về
+Store.prototype.getCustomers = function () {
+    return JSON.parse(localStorage.getItem("customers")) || [];
+};
+
+//.add(student): lưu customer vào localStorage
+Store.prototype.add = function (customer) {
+    //lấy danh sách từ localStorage xuống
+    let customers = this.getCustomers();
+    //thêm customer vào mảng
+    customers.push(customer);
+    //tải lên lại LS
+    localStorage.setItem("customers", JSON.stringify(customers));
+};
+
+//----------------RenderUI---------------
+function RenderUI() { };
+//RenderUI chuyên tạo ta object có method quản lí UI
+//.add(customer) thêm student vào giao diện
+RenderUI.prototype.add = function ({id, name, message }) {
+    //mình phải lấy danh sách từ localStorage xuống để hiển thị thứ tự
+    //tạo ra object quản lí LS
+    let store = new Store();
+    //lấy danh sách về
+    let customers = store.getCustomers();
+    //tạo ra phần tử ảo và bỏ các thông tin vào
+    let newCustomer = document.createElement("tr");
+    //nhét thông tin vào cho nó
+    newCustomer.innerHTML = `
+                        <td>${customers.length}</td>
+                        <td>${name}</td>
+                        <td>
+                            ${message}
+                        </td>
+                        <td>
+                            <button  data-id="${id}" class="btn btn-danger btn-remove">Remove</button>
+                        </td>
+                                                    `;
+    //nhét phần tử mới tạo vào cuối 
+    document.querySelector("tbody").appendChild(newCustomer);
+    //xóa value cho các ô nhập
+    document.querySelector("#fname").value = "";
+    document.querySelector("#lname").value = "";
+    document.querySelector("#message").value = "";
+    document.querySelector("#email").value = "";
+    document.querySelector("#phone").value = "";
+};
+//.alert(msg, type = "success"): nhận vào msg và hiển thị lên giao diện
+//      nếu em k truyền type thì mặc định là success => màu xanh
+//      nếu em truyền type thì mình hiện thị theo màu
+
+RenderUI.prototype.alert = function (msg, type = "success") {
+    let divAlert = document.createElement("div");
+    //thêm nội dung vào cho nó
+    divAlert.innerHTML = msg;
+    //thêm class cho nó
+    divAlert.className = `alert alert-${type} text-center`;
+    //nhét nó vào trong div thông báo
+    document.querySelector(".notification").appendChild(divAlert);
+    //hiển thị 2s xong rồi xóa luôn
+    setTimeout(() => {
+        divAlert.remove()
+    }, 2000);
+};
+
+//hàm init(): giúp lấy dữ liệu trong ls và hiển thị để nhằm control R thì sẽ không bị mất
+RenderUI.prototype.init = function () {
+    //lấy danh sách từ localStorage nên phải tạo ra object ls
+    let store = new Store();
+    //lấy danh sách về
+    let customers = store.getCustomers();
+    //tạo ra anh quản lí UI
+    let ui = new RenderUI();
+    //chạy for và hiển thị lên UI
+    customers.forEach((item, key) =>{
+        //mình phải lấy danh sách từ localStorage xuống để hiển thị thứ tự
+        //tạo ra phần tử ảo và bỏ các thông tin vào
+        let newCustomer = document.createElement("tr");
+        //nhét thông tin vào cho nó
+        newCustomer.innerHTML = `
+                            <td>${key + 1}</td>
+                            <td>${item.name}</td>
+                            <td>
+                                ${item.message}
+                            </td>
+                            <td>
+                                <button  data-id="${item.id}" class="btn btn-danger btn-remove">Remove</button>
+                            </td>
+                                                        `;
+        //nhét phần tử mới tạo vào cuối 
+        document.querySelector("tbody").appendChild(newCustomer);
+        //xóa value cho các ô nhập
+        document.querySelector("#fname").value = "";
+        document.querySelector("#lname").value = "";
+        document.querySelector("#message").value = "";
+        document.querySelector("#email").value = "";
+        document.querySelector("#phone").value = "";
+    });
+}
+
+
+//-----------------main flow------------
+//render lại lấy từ ls ra để k bị mất nd
+//render là để lúc nào mình ctrl R lại là nó lấy ra hiển thị lại
+//chứ nếu bỏ nó vào sự kiện thì k lẽ sự kiện diễn ra mới lấy ra để hiển thị thì nó k hợp lí
+let ui = new RenderUI();
+ui.init();
+
+//flow xóa các feedback đi
+//mình sẽ dom vào form luôn coi thử coi nếu click vào
+//mà có dính cái nút thì xóa
+document.querySelector("tbody").addEventListener("click", (event) => {
+    if(event.target.classList.contains("btn-remove")){
+        //lấy key của nó
+        let key = event.target.dataset.id;
+        //tạo ra anh quản lí ui
+        let ui = new RenderUI();
+        //tạo ra anh quản lí store
+        let store = new Store();
+        //lấy danh sách các item về
+        let customers = store.getCustomers();
+        //hiện con thông báo xác nhận coi có muốn xóa không
+        let isConfirmed = confirm(`Do you want delete feedback: No${event.target.parentElement.parentElement.children[0].textContent}`);
+        if(isConfirmed){
+            //xóa item trên UI
+            event.target.parentElement.parentElement.remove();
+            //xóa item trên localStorage
+            //duyệt qua mảng coi có th nào có id giống key thì xóa
+            customers = customers.filter((item) => {
+                return item.id != key;
+            });
+            //lưu lại lên localStorage
+            localStorage.setItem("customers", JSON.stringify(customers));
+        };
+    };
+});
 
