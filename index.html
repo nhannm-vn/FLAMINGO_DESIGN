@@ -21,7 +21,8 @@
 </head>
 
 <body>
-    <div class="container">
+    <!-- header -->
+    <header>
         <!-- header -->
         <div class="header-menu">
             <div class="header-menu-search">
@@ -75,6 +76,38 @@
                 </div>
             </div>
         </div>
+        <!-- controller list -->
+        <div class="controller-list">
+            <ul class="controller-list-nav">
+                <li class="controller-list-element">
+                    <a class="controller-list-link" href="#">
+                        <i class="fa-regular fa-circle"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="controller-list-element">
+                    <a class="controller-list-link" href="#shop">
+                        <i class="fa-regular fa-circle"></i>
+                        <span>Shop</span>
+                    </a>
+                </li>
+                <li class="controller-list-element">
+                    <a class="controller-list-link" href="#about">
+                        <i class="fa-regular fa-circle"></i>
+                        <span>About</span>
+                    </a>
+                </li>
+                <li class="controller-list-element">
+                    <a class="controller-list-link" href="#contact">
+                        <i class="fa-regular fa-circle"></i>
+                        <span>Contact me</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <!-- body -->
+    <div class="container">
         <!-- shop body -->
         <div class="shop-body">
             <h1 id="shop" class="text-center" style="color: rgb(130, 94, 5); letter-spacing: 0.5rem; font-weight: 400;">
@@ -208,35 +241,8 @@
                 </div>
             </div>
         </div>
-        <!-- controller list -->
-        <div class="controller-list">
-            <ul class="controller-list-nav">
-                <li class="controller-list-element">
-                    <a class="controller-list-link" href="#">
-                        <i class="fa-regular fa-circle"></i>
-                        <span>Home</span>
-                    </a>
-                </li>
-                <li class="controller-list-element">
-                    <a class="controller-list-link" href="#shop">
-                        <i class="fa-regular fa-circle"></i>
-                        <span>Shop</span>
-                    </a>
-                </li>
-                <li class="controller-list-element">
-                    <a class="controller-list-link" href="#about">
-                        <i class="fa-regular fa-circle"></i>
-                        <span>About</span>
-                    </a>
-                </li>
-                <li class="controller-list-element">
-                    <a class="controller-list-link" href="#contact">
-                        <i class="fa-regular fa-circle"></i>
-                        <span>Contact me</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
+    </div>
+    <section>
         <!-- about -->
         <div class="about-body">
             <h1 id="about">ABOUT</h1>
@@ -298,10 +304,12 @@
                 <div class="contact-input d-flex mb-3">
                     <div class="contact-message d-flex flex-column mb-3 mt-3">
                         <label class="form-label" for="message">Message</label>
-                        <textarea class="form-control input-message" id="message"></textarea>
+                        <textarea class="form-control input-message input-prevent-empty" id="message"></textarea>
                     </div>
                 </div>
-                <button class="btn-submit">Submit</button>
+                <div class="button-control">
+                    <button class="btn-submit">Submit</button>
+                </div>
             </form>
             <div class="notification mt-5">
                 <!-- <div class="alert alert-success text-center">Thêm thành công</div> -->
@@ -311,7 +319,7 @@
         <div class="table-feedback">
             <h2>Feedback From Customer</h2>
             <!-- table hiển thị feedback khách hàng -->
-             <table class="table table-bordered table-hover mt-3">
+            <table class="table table-bordered table-hover mt-3">
                 <thead>
                     <tr>
                         <th>NO</th>
@@ -333,8 +341,11 @@
                         </td>
                     </tr> -->
                 </tbody>
-             </table>
+            </table>
         </div>
+    </section>
+    <!-- footer -->
+    <footer>
         <!-- body end -->
         <div class="content-end">
             <div class="content-end-to-header">
@@ -375,13 +386,11 @@
                 </div>
             </div>
             <p class="content-end-hehe">
-                © 2024 by Flamingo Designs. Powered and secured by 
+                © 2024 by Flamingo Designs. Powered and secured by
                 <a href="mailto:nhanmin911@gmail.com">Nguyen Nhan</a>
             </p>
         </div>
-        
-    </div>
-
+    </footer>
 
     <!--  -->
     <!-- <div style="height: 100vh;"></div> -->

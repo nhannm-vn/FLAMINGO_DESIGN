@@ -125,29 +125,6 @@ const clearMsg = () => {
 //     controlNodes: [fnameNode],
 // });
 
-//Mình sẽ nâng cấp thêm cho các ô fname, lname, email, phone thì bắt buộc nhập, nếu mà không nhập cũng coi như lỗi
-//còn message thì không cần
-//dom tới tất cả tụi nó
-document.querySelectorAll(".input-prevent-empty").forEach((item) => {
-    item.addEventListener("blur", (event) => {
-        if (!event.target.value && !event.target.classList.contains("is-invalid")) {//nghĩa là nếu không nhập gì và cũng không báo đỏ thì mới làm
-            createMsg(event.target.parentNode, [event.target], "that fields is required");
-        };
-    });
-});
-
-//sự kiện khi có gõ gì vào thì mình sẽ xóa đi cái đỏ đỏ nhé
-document.querySelectorAll(".input-prevent-empty").forEach((item) => {
-    item.addEventListener("input", (event) => {
-        if (event.target.value != "" || event.target.value != null) {//nếu có nội dung gì đó thì là true mà true thì làm
-            //xóa cái class is-invalid cho nó hết đỏ đi
-            event.target.classList.remove("is-invalid");
-            //xóa cái div thông báo ở dưới
-            event.target.nextElementSibling.remove();
-        };
-    });
-});
-
 //bắt sự kiện submit chính Main Flow
 //bắt sự kiện của form luôn
 document.querySelector("form").addEventListener("submit", (event) => {
@@ -224,6 +201,30 @@ document.querySelector("form").addEventListener("submit", (event) => {
     };
 });
 
+//Mình sẽ nâng cấp thêm cho các ô fname, lname, email, phone thì bắt buộc nhập, nếu mà không nhập cũng coi như lỗi
+//còn message thì không cần
+//dom tới tất cả tụi nó
+document.querySelectorAll(".input-prevent-empty").forEach((item) => {
+    item.addEventListener("blur", (event) => {
+        if (event.target.value == "" && !event.target.classList.contains("is-invalid")) {//nghĩa là nếu không nhập gì và cũng không báo đỏ thì mới làm
+            createMsg(event.target.parentNode, [event.target], "that field is required!");
+        };
+    });
+});
+
+//sự kiện khi có gõ gì vào thì mình sẽ xóa đi cái đỏ đỏ nhé
+document.querySelectorAll(".input-prevent-empty").forEach((item) => {
+    item.addEventListener("input", (event) => {
+        if (event.target.value != "" || event.target.value != null) {//nếu có nội dung gì đó thì là true mà true thì làm
+            //xóa cái class is-invalid cho nó hết đỏ đi
+            event.target.classList.remove("is-invalid");
+            //xóa cái div thông báo ở dưới
+            event.target.nextElementSibling.remove();
+        };
+    });
+});
+
+//------------------------------------------------------------------------------------------------//
 // Chức năng hiển thị feedback lên web
 //tạo class cho Customer để tạo ra các customer
 //tụi tui k có dùng class => function constructor

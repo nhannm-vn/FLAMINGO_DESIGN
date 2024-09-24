@@ -14,19 +14,20 @@ body{
 /* container */
 .container{
     max-width: 132rem;
-    background-color: #fafafa;
+    /* background-color: #fafafa; */
     margin: 0 auto;
     /* border: 2px solid red; */
-    height: 490rem;
+    height: 130rem;
     padding: 0;
     position: relative;
 }
 /* header menu */
 .header-menu{
-    padding: 0 15rem;
+    margin: 0 auto;
     display: flex;
     /* border: 2px solid yellow; */
     height: 9rem;
+    justify-content: center;
 }
 /* input */
 .input-name{
@@ -70,6 +71,7 @@ body{
 /* menu */
 .header-menu-search{
     padding-top: 3rem;
+    /* margin-left: 32rem; */
 }
 .header-menu-list{
     /* border: 2px solid greenyellow; */
@@ -167,7 +169,7 @@ body{
     width: 26rem;
     height: 37rem;
     /* border: 3px solid yellow; */
-    background-color: #fafafa;
+    /* background-color: #fafafa; */
     border: none;
     display: flex;
     flex-direction: column;
@@ -391,10 +393,16 @@ body{
 .contact-message label{
     color: rgb(127, 112, 61);
 }
+/* button */
+.button-control{
+    display: flex;
+    justify-content: center;
+}
 .btn-submit{
+    margin-left: 35rem;
     margin-top: 2rem;
     font-size: 2rem;
-    margin-left: 76rem;
+    /* margin-left: 76rem; */
     width: 16.5rem;
     height: 4.6rem;
     color: black;
@@ -442,7 +450,7 @@ body{
 /* body end */
 .content-end{
     width: 100%;
-    height: 45rem;
+    height: 35rem;
     background-color: rgb(127, 112, 61);
 }
 .content-end-to-header{
