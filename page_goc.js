@@ -219,7 +219,9 @@ document.querySelectorAll(".input-prevent-empty").forEach((item) => {
             //xóa cái class is-invalid cho nó hết đỏ đi
             event.target.classList.remove("is-invalid");
             //xóa cái div thông báo ở dưới
-            event.target.nextElementSibling.remove();
+            if(event.target.nextElementSibling){//có thì mới xóa
+                event.target.nextElementSibling.remove();
+            }
         };
     });
 });
@@ -342,8 +344,11 @@ RenderUI.prototype.init = function () {
 //render lại lấy từ ls ra để k bị mất nd
 //render là để lúc nào mình ctrl R lại là nó lấy ra hiển thị lại
 //chứ nếu bỏ nó vào sự kiện thì k lẽ sự kiện diễn ra mới lấy ra để hiển thị thì nó k hợp lí
-let ui = new RenderUI();
-ui.init();
+//**Khi tất cả code đã xong thì mới render ra 
+document.addEventListener("DOMContentLoaded", (event) => {
+    let ui = new RenderUI();
+    ui.init();
+});
 
 //flow xóa các feedback đi
 //mình sẽ dom vào form luôn coi thử coi nếu click vào
@@ -374,3 +379,15 @@ document.querySelector("tbody").addEventListener("click", (event) => {
     };
 });
 
+//**Giúp cho trang web chuyển mượt hơn
+window.transitionToPage = function(href) {
+    document.querySelector('body').style.opacity = 0
+    setTimeout(function() { 
+        window.location.href = href
+    }, 1000)
+};
+
+document.addEventListener('DOMContentLoaded', function(event) {
+    document.querySelector('body').style.opacity = 1
+});
+// ------------------------------------------------------------
