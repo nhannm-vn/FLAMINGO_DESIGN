@@ -436,13 +436,21 @@ body{
 }
 /* table-feedback */
 .table-feedback{
-    border: 2px double rgb(205, 135, 5);
+    border: 9px double rgb(205, 135, 5);
     width: 80%;
     height: 30rem;
     margin: 0 auto;
     overflow-y: auto;
     border-radius: 1rem;
     margin-bottom: 5rem;
+}
+.table-feedback::-webkit-scrollbar{
+    background-color: transparent;
+    width: 2rem;
+}
+.table-feedback::-webkit-scrollbar-thumb{
+    background-color: burlywood;
+    border-radius: 10rem;
 }
 .table-feedback h2{
     text-align: center;

@@ -1,0 +1,162 @@
+/* reset css */
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+html {
+    /* font-size: 10rem */
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+/*  */
+.container {
+    margin: 0 auto;
+    /* cách để full hết hai bên */
+    max-width: initial;
+    /* max-width: 132rem; */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: "Jost", sans-serif;
+    display: flex;
+    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+}
+
+.main {
+    /* border: 2px solid red; */
+    width: 35rem;
+    height: 55rem;
+    /* background-color: red; */
+    background: url('./background.png');
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 1rem;
+    box-shadow: 5px 20px 50px #000;
+}
+
+#chk {
+    display: none;
+}
+
+.signup {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.title-signUp {
+    color: #fff;
+    font-size: 3.5rem;
+    display: flex;
+    justify-content: center;
+    margin: 5rem;
+    font-weight: bold;
+    /* bấm vào được */
+    cursor: pointer;
+    /* thời gian chuyển động */
+    transition: .5s ease-in-out;
+}
+
+.title-logIn {
+    color: #fff;
+    font-size: 3.5rem;
+    display: flex;
+    justify-content: center;
+    margin: 5rem;
+    font-weight: bold;
+    /* bấm vào được */
+    cursor: pointer;
+    /* thời gian chuyển động */
+    transition: .5s ease-in-out;
+}
+
+.form-check {
+    margin-left: 5.5rem;
+}
+
+.form-control {
+    width: 70%;
+    height: 3.4rem;
+    background-color: #e0dede;
+    font-size: 2rem;
+    border-radius: 0.5rem;
+    display: flex;
+    /* combo đưa ra giữa */
+    margin: 0 auto;
+}
+
+input::placeholder {
+    font-size: 1.6rem;
+}
+
+/* combo tắt viềng sáng của bootstrap */
+.form-control:focus {
+    outline: none;
+    /* giá trị mặc định */
+    border: initial;
+    /* cái bóng của cái ô */
+    box-shadow: none;
+}
+
+/* button */
+.button {
+    width: 70%;
+    height: 3.2rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    background-color: #573b83;
+    font-size: 2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 0.5rem;
+    transition: .2s ease-in-out;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #6d44b8;
+}
+
+/* ----------------login------------- */
+.login {
+    height: 48rem;
+    background-color: #fff;
+    border-radius: 60% / 10%;
+    transform: translateY(-15rem);
+    transition: .8s ease-in-out;
+    background: url('./background-white.png');
+    /* overflow: hidden; */
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.title-logIn {
+    /* color: #573b8a; */
+    color: #fff;
+    transform: scale(.7);
+}
+
+/* trạng thái khi bấm vào 2 cái label */
+#chk:checked~.login {
+    transform: translateY(-55rem);
+
+}
+
+#chk:checked~.login .title-logIn {
+    transform: scale(1);
+}
+/*
+Dấu ~ trong CSS được dùng để chọn các phần tử anh em phía sau của một phần tử trước đó, dựa vào điều kiện của phần tử trước đó.
+*/
+#chk:checked~.signup .title-signUp {
+    transform: scale(.7);
+}

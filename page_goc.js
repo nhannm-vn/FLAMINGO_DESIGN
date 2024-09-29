@@ -344,6 +344,7 @@ RenderUI.prototype.init = function () {
 //render lại lấy từ ls ra để k bị mất nd
 //render là để lúc nào mình ctrl R lại là nó lấy ra hiển thị lại
 //chứ nếu bỏ nó vào sự kiện thì k lẽ sự kiện diễn ra mới lấy ra để hiển thị thì nó k hợp lí
+
 //**Khi tất cả code đã xong thì mới render ra 
 document.addEventListener("DOMContentLoaded", (event) => {
     let ui = new RenderUI();
