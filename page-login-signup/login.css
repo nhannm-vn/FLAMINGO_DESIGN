@@ -12,7 +12,106 @@ html {
 
 body {
     font-size: 1.6rem;
+    transition: opacity 1s ease; /* Hiệu ứng chuyển mờ trong 1.5 giây */
+    opacity: 1;
 }
+
+/* header menu */
+.header-menu{
+    margin: 0 auto;
+    display: flex;
+    /* border: 2px solid yellow; */
+    height: 9rem;
+    justify-content: center;
+}
+/* input */
+.input-name{
+    width: 18rem;
+    border-radius: 0;
+    border: none;
+    background-color: transparent;
+    padding: 0 4rem;
+    height: 4rem;
+    z-index: 1;
+    font-size: 2rem;
+    color: rgb(130, 94, 5);
+}
+.input-name:focus{
+    outline-offset: none;
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+    border: 2px solid rgb(130, 94, 5);
+    color: rgb(130, 94, 5);
+}
+.input-name::placeholder{
+    color: rgb(130, 94, 5);
+}
+.input-name:hover{
+    border: 2px solid rgb(130, 94, 5);
+}
+.header-menu-just{
+    display: flex;
+    position: relative;
+}
+.header-menu-just i{
+    font-size: 2rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 0;
+    padding: 0 0.5rem;
+    color: rgb(130, 94, 5);
+}
+/* menu */
+.header-menu-search{
+    padding-top: 3rem;
+    /* margin-left: 32rem; */
+}
+.header-menu-list{
+    /* border: 2px solid greenyellow; */
+    width: 40rem;
+    padding-top: 3rem;
+}
+.header-menu-list-nav{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.5rem 0 0 0;
+}
+.header-menu-list{
+    margin-left: 7rem;
+}
+.header-menu-link{
+    text-decoration: none;
+    color: rgb(130, 94, 5);
+}
+.header-menu-link:hover{
+    color: black;
+}
+/* header icon */
+.header-menu-icon{
+    padding-top: 3rem;
+    display: flex;
+    margin-left: 5rem;
+}
+.icon-login-link{
+    text-decoration: none;
+    color: rgb(130, 94, 5);
+}
+.icon-login{
+    margin-left: 2rem;
+}
+.icon-buy{
+    margin-left: 2rem;
+}
+.icon-buy-link{
+    text-decoration: none;
+    color: rgb(130, 94, 5);
+}
+
+/*  */
 
 /*  */
 .container {
@@ -25,7 +124,10 @@ body {
     min-height: 100vh;
     font-family: "Jost", sans-serif;
     display: flex;
-    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+    /* background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e); */
+    /* background: linear-gradient(135deg, #ffffff, #f9f7f3, #fde293, #ffc1cc, #ff9a8b); */
+    /* background: linear-gradient(120deg, #ffffff, #f7ffde, #fdd835, #64ffda); */
+    background: linear-gradient(90deg, #ffffff, #f6f4d2, #e4c78d, #b2835b, #603808);
 }
 
 .main {
@@ -33,7 +135,8 @@ body {
     width: 35rem;
     height: 55rem;
     /* background-color: red; */
-    background: url('./background.png');
+    /* background-position: center; */
+    background: url('./heyhey.png');
     overflow: hidden;
     background-repeat: no-repeat;
     background-size: cover;
@@ -113,7 +216,8 @@ input::placeholder {
     display: flex;
     justify-content: center;
     color: #fff;
-    background-color: #573b83;
+    /* background-color: #573b83; */
+    background-color: #603808;
     font-size: 2rem;
     font-weight: bold;
     border: none;
@@ -123,7 +227,8 @@ input::placeholder {
 }
 
 .button:hover {
-    background-color: #6d44b8;
+    /* background-color: #6d44b8; */
+    background-color: #b2835b;
 }
 
 /* ----------------login------------- */
@@ -133,7 +238,8 @@ input::placeholder {
     border-radius: 60% / 10%;
     transform: translateY(-15rem);
     transition: .8s ease-in-out;
-    background: url('./background-white.png');
+    /* background: url('./background-white.png'); */
+    background: url('./eheyhey.png');
     /* overflow: hidden; */
     background-repeat: no-repeat;
     background-size: cover;
@@ -159,4 +265,89 @@ Dấu ~ trong CSS được dùng để chọn các phần tử anh em phía sau 
 */
 #chk:checked~.signup .title-signUp {
     transform: scale(.7);
+}
+
+/* body end */
+.content-end{
+    width: 100%;
+    height: 40rem;
+    /* background-color: rgb(127, 112, 61); */
+    background: linear-gradient(90deg, #ffffff, #f6f4d2, #e4c78d, #b2835b, #603808);
+}
+.content-end-to-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5rem;
+}
+.content-end-to-header a{
+    text-decoration: none;
+    font-weight: 900;
+    color: aliceblue;
+    font-size: 2.5rem;
+}
+.content-end-to-header p{
+    color: aliceblue;
+    font-weight: 400;
+}
+
+.content-end-faq{
+    text-align: center;
+    margin-top: 2rem;
+}
+.content-end-faq a{
+    text-decoration: none;
+    font-weight: 300;
+    color: aliceblue;
+    font-size: 2rem;
+}
+
+.content-end-shipping{
+    text-align: center;
+    margin-top: 2rem;
+}
+.content-end-shipping a{
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 1.6rem;
+    color: aliceblue;
+    font-size: 2rem;
+}
+
+.content-end-term{
+    text-align: center;
+    margin-top: 2rem;
+}
+.content-end-term a{
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 1.6rem;
+    color: aliceblue;
+    font-size: 2rem;
+}
+
+/* end icon */
+.content-end-icon{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+}
+.content-end-icon div{
+    margin-right: 3rem;
+}
+.content-end-icon a{
+    text-decoration: none;
+    color: aliceblue;
+}
+.content-end-hehe{
+    margin-top: 2rem;
+    text-align: center;
+    color: aliceblue;
+}
+.content-end-hehe a{
+    color: aliceblue;
+}
+.content-end-hehe a:hover{
+    color: black;
 }
