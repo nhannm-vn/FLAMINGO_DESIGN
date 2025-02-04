@@ -10,3 +10,5 @@ window.transitionToPage = function (href) {
 document.addEventListener("DOMContentLoaded", function (event) {
   document.querySelector("body").style.opacity = 1;
 });
+
+console.log("ahihihi");
